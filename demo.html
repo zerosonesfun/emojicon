@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>emojicon demo</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      max-width: 40rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #222;
+      background: #f7f4ef;
+    }
+    h1 { font-size: 1.6rem; }
+    button {
+      font: inherit;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+    #live { margin-top: 1rem; padding: 0.75rem; background: #fff; border: 1px solid #ccc; }
+    textarea { width: 100%; min-height: 4rem; font: inherit; }
+    code { font-family: Consolas, monospace; }
+  </style>
+  <script src="emojicon.js" defer></script>
+</head>
+<body>
+  <h1>emojicon demo</h1>
+  <p>
+    Faces: 😀 😁 😂 🤣 😊 😍 😘 😜 😎 🤔 😴 😭 😡 🤯 🥳
+  </p>
+  <p>
+    Kaomoji samples: 😀 😭 😢 😡 💪 🤷 🐻 😎 😏 👍 🔥
+  </p>
+  <p>
+    Gestures: 👍 👎 👏 🙏 💪 ✌️ 🤘 👋 🤝 🤷
+  </p>
+  <p>
+    Hearts and vibes: ❤️ 💔 💕 🔥 ✨ 💯 🎉 ☕
+  </p>
+  <p>
+    Animals and food: 🐶 🐱 🦊 🐼 🍕 🍔 🍣 🍦
+  </p>
+  <p>
+    Mixed sentence: Had a 😴 night then ☕ and felt 💪 ready. Score was 💯.
+  </p>
+  <p>
+    Skin tones stay when unmapped: 👍🏻 👍🏽 👍🏿 (base 👍 still converts).
+  </p>
+  <p>
+    Unmapped stays as emoji if we never listed it (most common ones map).
+  </p>
+
+  <h2>Should not convert</h2>
+  <p>Inside code: <code>use 😀 in source</code></p>
+  <p>
+    Textarea (type emoji freely):
+    <textarea>😀 type here</textarea>
+  </p>
+
+  <h2>Dynamic insert</h2>
+  <button type="button" id="add">Add emoji paragraph</button>
+  <div id="live"></div>
+
+  <script>
+    document.getElementById('add').addEventListener('click', function () {
+      var p = document.createElement('p');
+      p.textContent = 'Injected later: 😀 😂 💪 ❤️ 🔥';
+      document.getElementById('live').appendChild(p);
+    });
+  </script>
+</body>
+</html>
